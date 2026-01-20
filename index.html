@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image & Company | Not Your Average Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --plum-black: #1E0708; --deep-purple: #340417; --burgundy: #4C042D; --gold: #884B43;
+        }
+        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        body { 
+            background-color: var(--deep-purple); color: white; margin: 0; 
+            font-family: 'Inter', sans-serif; line-height: 1.6;
+        }
+        h1, h2, h3 { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 4px; font-weight: 400; }
+        
+        /* Nav Bar */
+        nav { 
+            position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; 
+            align-items: center; padding: 2rem 5%; z-index: 1000; background: rgba(30, 7, 8, 0.95);
+        }
+        .nav-links a { color: white; text-decoration: none; margin-left: 30px; font-size: 0.75rem; letter-spacing: 2px; cursor: pointer; }
+        .meet-kai { border: 1px solid var(--gold); padding: 8px 20px; color: var(--gold) !important; font-weight: 600; }
+        .meet-kai:hover { background: var(--gold); color: white !important; }
+
+        /* General Layout */
+        section { display: none; min-height: 100vh; padding: 10rem 10% 5rem; }
+        section.active { display: block; animation: fadeInUp 0.8s ease forwards; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Home Hero */
+        .hero-container { text-align: left; max-width: 900px; }
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem; }
+        .sub-headline { font-weight: 200; font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 600px; }
+
+        /* Versus Presentation (Q1 Offers) */
+        .versus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 5rem 0; }
+        .offer-card { 
+            background: linear-gradient(145deg, #1E0708, #340417);
+            border: 1px solid rgba(136, 75, 67, 0.3); padding: 4rem 2rem; text-align: center;
+        }
+        .offer-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .offer-card h3 { font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .offer-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); font-style: italic; }
+
+        /* Dropdowns (Directory) */
+        .dropdown-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; cursor: pointer; position: relative; }
+        .dropdown-item:hover { color: var(--gold); }
+        .dropdown-content { max-height: 0; overflow: hidden; color: rgba(255,255,255,0.6); font-size: 0.9rem; padding-left: 20px; }
+        .dropdown-item.open .dropdown-content { max-height: 500px; margin-top: 1rem; }
+
+        /* Step Process */
+        .step-container { margin-top: 4rem; }
+        .step { margin-bottom: 3rem; }
+        .step-title { color: var(--gold); font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+        /* Buttons */
+        .cta-button { 
+            display: inline-block; background: var(--gold); color: white; padding: 1.2rem 3rem; 
+            text-decoration: none; font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px; margin-top: 2rem;
+        }
+
+        footer { padding: 5rem 10%; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.75rem; letter-spacing: 1px; color: rgba(255,255,255,0.4); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div style="font-family: 'Cinzel'; font-size: 1.2rem; cursor: pointer;" onclick="showPage('home-page')">I & C</div>
+        <div class="nav-links">
+            <a onclick="showPage('home-page')">HOME</a>
+            <a onclick="showPage('services-page')">SERVICES</a>
+            <a href="https://kai.imageandco901.com" class="meet-kai">MEET KAI</a>
+        </div>
+    </nav>
+
+    <section id="home-page" class="active">
+        <div class="hero-container">
+            <h1 class="hero-title">STORY-LED.<br>DETAIL-REFINED.<br>BRANDS REIMAGINED.</h1>
+            <p class="sub-headline">Clarity, positioning, and visual direction that make everything else work. We help founders not only look credible—but operate clearly. [cite: 85, 108]</p>
+            
+            <h2 style="margin-top: 8rem; font-size: 1.5rem;">Clarity Creates Conversions</h2>
+            <div class="versus-grid">
+                <div class="offer-card">
+                    <h3>Webinar & Lead Capture Systems</h3>
+                    <p>We design the landing page, slides, and systems that turn ideas into sign-ups. [cite: 98, 102]</p>
+                </div>
+                <div class="offer-card">
+                    <h3>Brand Story & Positioning Intensive</h3>
+                    <p>Messaging confusion and offer clarity resolved before you execute. [cite: 104, 113]</p>
+                </div>
+            </div>
+
+            <div class="directory">
+                <div class="dropdown-item" onclick="toggleDropdown(this)">| STORY-LED CREATIVE <div class="dropdown-content">Positioning, Visual Identity, and Launch Support. [cite: 5, 14]</div></div>
+                <div class="dropdown-item" onclick="toggleDropdown(this)">| DETAIL-REFINED SYSTEMS <div class="dropdown-content">CRM Setup, Internal Tools, and Financial Dashboards. [cite: 28, 42, 49]</div></div>
+                <div class="dropdown-item" onclick="toggleDropdown(this)">| ONGOING PARTNERSHIPS <div class="dropdown-content">Monthly Strategic Retainers and Launch Packages. [cite: 56, 63]</div></div>
+                <div class="dropdown-item" onclick="toggleDropdown(this)">| SIGNATURE WEBSITE EXPERIENCE <div class="dropdown-content">Story-led One-Page and Full Multi-Page Websites. [cite: 70, 78]</div></div>
+            </div>
+
+            <a onclick="showPage('services-page')" class="cta-button" style="background: transparent; border: 1px solid white;">VIEW FULL SERVICE MENU</a>
+
+            <div style="margin-top: 8rem; background: var(--plum-black); padding: 4rem; border-left: 4px solid var(--gold);">
+                <h2>Problem Solvers by Design.</h2>
+                <p class="sub-headline">We've always sat at the intersection of style, strategy, systems, and software. It’s only right that we offer a product designed to tackle industry pain points. [cite: 3, 84]</p>
+                <a href="https://kai.imageandco901.com" class="cta-button">ENTER THE KAI PORTAL</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-page">
+        <div class="hero-container">
+            <h1>NOT YOUR AVERAGE AGENCY.</h1>
+            <p class="sub-headline">Seven years ago, this started in a college dorm room with a "win-first" mentality. Today, we are a global studio for founders who demand more than just pretty designs.</p>
+            
+            <h2 style="margin-top: 6rem;">Four Steps to the Win</h2>
+            <div class="step-container">
+                <div class="step">
+                    <div class="step-title">| 1. SELECT YOUR SYSTEM</div>
+                    <p class="sub-headline">Choose the service category that aligns with your current bottleneck. [cite: 133]</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">| 2. ROUNDTABLE</div>
+                    <p class="sub-headline">A strategy-heavy session to discuss every need and want before execution. [cite: 104]</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">| 3. BUILD</div>
+                    <p class="sub-headline">Design and development with a relentless focus on usability and conversion. [cite: 4, 84]</p>
+                </div>
+                <div class="step">
+                    <div class="step-title">| 4. DELIVERY</div>
+                    <p class="sub-headline">Hand-off with clear walkthroughs and priority async support. [cite: 34, 59]</p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 6rem;">The Detailed Menu</h2>
+            <div class="dropdown-item" onclick="toggleDropdown(this)">| STORY-LED CREATIVE
+                <div class="dropdown-content">
+                    • Brand Story Intensive — $450 [cite: 7]<br>
+                    • Visual Identity Suite — $850-$1,200 [cite: 14]<br>
+                    • Campaign & Launch Support — $950-$1,600 [cite: 20]
+                </div>
+            </div>
+            <div class="dropdown-item" onclick="toggleDropdown(this)">| DETAIL-REFINED SYSTEMS
+                <div class="dropdown-content">
+                    • CRM & Client Journey — $550 [cite: 30]<br>
+                    • Webinar & Lead Capture — $650-$1,000 [cite: 36]<br>
+                    • Internal System Design — Starting $750 [cite: 42]
+                </div>
+            </div>
+
+            <a href="mailto:klmalone0513@gmail.com?subject=Lets Work" class="cta-button">LET'S WORK</a>
+        </div>
+    </section>
+
+    <footer>
+        901-654-5728<br>
+        Built with ❤️ in Memphis, TN. Serving clients globally. [cite: 175, 191]
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0,0);
+        }
+        function toggleDropdown(el) {
+            el.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
