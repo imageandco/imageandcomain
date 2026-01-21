@@ -28,27 +28,29 @@
         .hero-title { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 2rem; }
         .sub-headline { font-weight: 300; font-size: 1.1rem; max-width: 750px; margin-bottom: 2rem; }
 
-        /* Q1 Gradient Cards */
         .q1-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 100%; max-width: 1100px; margin: 4rem 0; }
         .gradient-card { 
             background: linear-gradient(145deg, var(--plum-black), var(--deep-purple));
             border: 1px solid rgba(136, 75, 67, 0.4); padding: 4rem 2rem; color: white; text-align: left;
         }
         .gradient-card h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--gold); }
-        .gradient-card p { font-size: 0.9rem; opacity: 0.8; font-weight: 300; }
+        .gradient-card p { font-size: 0.85rem; opacity: 0.8; font-weight: 300; }
 
-        /* Dropdowns */
         .menu-container { max-width: 900px; margin: 0 auto; width: 100%; }
         .dropdown-item { border-bottom: 1px solid rgba(0,0,0,0.1); padding: 2rem 0; cursor: pointer; text-align: left; }
         .dark-section .dropdown-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
         .dropdown-header { display: flex; justify-content: space-between; font-family: 'Cinzel'; font-size: 1.1rem; }
         .dropdown-content { max-height: 0; overflow: hidden; opacity: 0; padding-top: 0; }
-        .dropdown-item.open .dropdown-content { max-height: 1200px; opacity: 1; padding-top: 1.5rem; }
+        .dropdown-item.open .dropdown-content { max-height: 2000px; opacity: 1; padding-top: 1.5rem; }
 
-        /* Form Styling */
+        .service-block { margin-bottom: 2.5rem; }
+        .service-name { font-weight: 600; font-size: 1.1rem; display: block; }
+        .service-price { color: var(--gold); font-family: 'Cinzel'; font-size: 0.9rem; margin-top: 5px; display: block; }
+        .service-includes { display: block; font-size: 0.85rem; opacity: 0.7; margin-top: 8px; line-height: 1.5; }
+
         input, select, textarea { 
-            width: 100%; padding: 1rem; margin-top: 1rem; background: transparent; 
-            border: 1px solid var(--plum-black); font-family: 'Inter'; 
+            width: 100%; padding: 1rem; margin-top: 1rem; background: #fff; 
+            border: 1px solid #ddd; font-family: 'Inter'; 
         }
 
         .btn { 
@@ -85,12 +87,12 @@
                 <div class="gradient-card">
                     <h3>Webinar & Lead Capture Systems</h3>
                     <p>We design the landing page, slides, and systems that turn ideas into sign-ups.</p>
-                    <a onclick="goToBooking('Webinar Systems')" style="color:white; font-size: 0.7rem; cursor:pointer; text-decoration: underline;">SECURE THIS SYSTEM →</a>
+                    <a onclick="goToBooking('Webinar Systems')" style="color:white; font-size: 0.7rem; cursor:pointer; text-decoration: underline; margin-top: 15px; display: block;">SECURE THIS SYSTEM →</a>
                 </div>
                 <div class="gradient-card">
                     <h3>Brand Story & Positioning Intensive</h3>
                     <p>Messaging confusion and offer clarity resolved before you execute.</p>
-                    <a onclick="goToBooking('Positioning Intensive')" style="color:white; font-size: 0.7rem; cursor:pointer; text-decoration: underline;">SECURE THIS SYSTEM →</a>
+                    <a onclick="goToBooking('Positioning Intensive')" style="color:white; font-size: 0.7rem; cursor:pointer; text-decoration: underline; margin-top: 15px; display: block;">SECURE THIS SYSTEM →</a>
                 </div>
             </div>
         </section>
@@ -98,10 +100,10 @@
         <section class="dark-section centered">
             <h2 style="font-family: 'Cinzel';">THE SERVICE DIRECTORY</h2>
             <div class="menu-container" style="margin-top: 3rem;">
-                <div class="dropdown-item">| STORY-LED CREATIVE</div>
-                <div class="dropdown-item">| DETAIL-REFINED SYSTEMS</div>
-                <div class="dropdown-item">| ONGOING BRAND PARTNERSHIPS</div>
-                <div class="dropdown-item">| SIGNATURE WEBSITE EXPERIENCE</div>
+                <div class="dropdown-item" onclick="showPage('services')">| 1. STORY-LED CREATIVE</div>
+                <div class="dropdown-item" onclick="showPage('services')">| 2. DETAIL-REFINED SYSTEMS</div>
+                <div class="dropdown-item" onclick="showPage('services')">| 3. ONGOING BRAND PARTNERSHIPS</div>
+                <div class="dropdown-item" onclick="showPage('services')">| 4. SIGNATURE WEBSITE EXPERIENCE</div>
             </div>
         </section>
 
@@ -136,23 +138,73 @@
 
         <section class="dark-section">
             <div class="menu-container">
-                <h2 style="font-family: 'Cinzel'; margin-bottom: 3rem;">THE DETAILED MENU</h2>
+                <h2 style="font-family: 'Cinzel'; margin-bottom: 3rem; text-align: center;">THE DETAILED MENU</h2>
+                
                 <div class="dropdown-item" onclick="toggleDropdown(this)">
                     <div class="dropdown-header">| STORY-LED CREATIVE <span>+</span></div>
                     <div class="dropdown-content">
-                        <p><strong>Brand Story & Positioning Intensive — $450</strong><br>Includes: Core story, belief system, pillars, narrative, and tone guide.</p>
-                        <p><strong>Visual Identity & Mini Brand Suite — $850–$1,200</strong><br>Includes: Primary/Secondary logos, color story, typography, 6-10 templates.</p>
-                        <p><strong>Campaign or Product Launch Support — $950–$1,600</strong><br>Includes: Positioning, mapping, asset design, and advertising support.</p>
+                        <div class="service-block">
+                            <span class="service-name">Brand Story & Positioning Intensive — $450</span>
+                            <span class="service-includes">Includes: Core brand story, belief system, brand pillars, audience narrative, and a ready-to-use tone-of-voice guide.</span>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Visual Identity & Mini Brand Suite — $850–$1,200</span>
+                            <span class="service-includes">Includes: Primary logo/wordmark, secondary mark, color story, typography, and 6-10 brand templates.</span>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Campaign or Product Launch Support — $950–$1,600</span>
+                            <span class="service-includes">Includes: Positioning, naming, mapping, asset design and development, creative direction, and advertising support.</span>
+                        </div>
                         <button onclick="goToBooking('Story-Led Creative')" class="btn" style="width:100%">LET'S WORK</button>
                     </div>
                 </div>
+
                 <div class="dropdown-item" onclick="toggleDropdown(this)">
                     <div class="dropdown-header">| DETAIL-REFINED SYSTEMS <span>+</span></div>
                     <div class="dropdown-content">
-                        <p><strong>CRM & Client Journey Setup — $550</strong><br>Includes: Custom CRM build, lead stages, and end-to-end mapping.</p>
-                        <p><strong>Webinar & Lead Capture Systems — $650–$1,000</strong><br>Includes: Landing page, slide deck, and delivery automation.</p>
-                        <p><strong>Financial & Operations Systems — $750–$1,200</strong><br>Includes: Revenue tracking and financial dashboards.</p>
+                        <div class="service-block">
+                            <span class="service-name">CRM & Client Journey Setup — $550</span>
+                            <span class="service-includes">Includes: Custom CRM build (Airtable, Notion, or Sheets), lead stages, tags, and an end-to-end client journey map.</span>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Webinar & Lead Capture Systems — $650–$1,000</span>
+                            <span class="service-includes">Includes: Landing page or lead magnet creation, branded slide deck, delivery automation, and launch graphics.</span>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Financial & Operations Systems — $750–$1,200</span>
+                            <span class="service-includes">Includes: Revenue/expense tracking, financial dashboards, and decision-support reporting systems.</span>
+                        </div>
                         <button onclick="goToBooking('Systems')" class="btn" style="width:100%">LET'S WORK</button>
+                    </div>
+                </div>
+
+                <div class="dropdown-item" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">| ONGOING BRAND PARTNERSHIPS <span>+</span></div>
+                    <div class="dropdown-content">
+                        <div class="service-block">
+                            <span class="service-name">Monthly Brand Partnership Retainer — $650–$1,200/mo</span>
+                            <span class="service-includes">Includes: Strategy/working sessions, ongoing creative and systems direction, and monthly scoped deliverables.</span>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Launch Partner Package — $2,400–$3,000</span>
+                            <span class="service-includes">Includes: Campaign concept, full asset creation (landing pages, slides, graphics), and weekly check-ins during launch.</span>
+                        </div>
+                        <button onclick="goToBooking('Retainer')" class="btn" style="width:100%">LET'S WORK</button>
+                    </div>
+                </div>
+
+                <div class="dropdown-item" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">| SIGNATURE WEBSITE EXPERIENCE <span>+</span></div>
+                    <div class="dropdown-content">
+                        <div class="service-block">
+                            <span class="service-name">One-Page Website Experience — $1,000</span>
+                            <span class="service-includes">Includes: Story-led one-page structure, full design, mobile optimization, and clear conversion flow.</span>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Full Website Design — Starting at $1,600</span>
+                            <span class="service-includes">Options: 3-5 pages ($1,600–$1,900) or 6-8 pages ($2,000–$2,400). Includes: Narrative + UX structure, design, copy editing, and mobile optimization.</span>
+                        </div>
+                        <button onclick="goToBooking('Website')" class="btn" style="width:100%">LET'S WORK</button>
                     </div>
                 </div>
             </div>
@@ -168,6 +220,7 @@
         <section class="light-section">
             <div class="menu-container">
                 <h1 class="hero-title">SECURE YOUR SYSTEM.</h1>
+                <p>Tell us about your current bottleneck and we'll be in touch within 24 hours.</p>
                 <form action="https://formsubmit.co/klmalone0513@gmail.com" method="POST">
                     <input type="text" name="name" placeholder="Full Name" required>
                     <input type="email" name="email" placeholder="Email Address" required>
@@ -180,7 +233,7 @@
                         <option value="Retainer">Brand Partnership</option>
                         <option value="Website">Signature Website</option>
                     </select>
-                    <textarea name="message" rows="5" placeholder="Tell us about your current bottleneck..."></textarea>
+                    <textarea name="message" rows="5" placeholder="Tell us more about what you need..."></textarea>
                     <button type="submit" class="btn" style="width:100%">SUBMIT INTAKE</button>
                 </form>
             </div>
