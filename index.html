@@ -13,7 +13,6 @@
         body { margin: 0; font-family: 'Inter', sans-serif; line-height: 1.7; color: var(--plum-black); background-color: var(--off-white); overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 3px; font-weight: 400; margin: 0; }
         
-        /* Navigation (Stays Dark/Sophisticated) */
         nav { 
             position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; 
             align-items: center; padding: 1.5rem 5%; z-index: 1000; background: var(--plum-black); color: white;
@@ -21,44 +20,45 @@
         .nav-links a { color: white; text-decoration: none; margin-left: 30px; font-size: 0.7rem; letter-spacing: 2px; cursor: pointer; }
         .meet-kai { border: 1px solid var(--gold); padding: 8px 20px; color: var(--gold) !important; font-weight: 600; }
 
-        /* Section Logic */
         section { padding: 8rem 10%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
         .dark-section { background: var(--plum-black); color: white; }
         .light-section { background: var(--off-white); color: var(--plum-black); }
         .centered { text-align: center; align-items: center; }
         
-        /* Typography Scale */
         .hero-title { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 2rem; }
-        .section-title { font-size: 1.8rem; margin-bottom: 3rem; position: relative; display: inline-block; }
-        .sub-headline { font-weight: 300; font-size: 1.1rem; max-width: 700px; margin-bottom: 2rem; }
-        .dark-section .sub-headline { color: rgba(255,255,255,0.7); }
+        .sub-headline { font-weight: 300; font-size: 1.1rem; max-width: 750px; margin-bottom: 2rem; }
 
-        /* Service Cards & Dropdowns */
+        /* Q1 Gradient Cards */
+        .q1-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 100%; max-width: 1100px; margin: 4rem 0; }
+        .gradient-card { 
+            background: linear-gradient(145deg, var(--plum-black), var(--deep-purple));
+            border: 1px solid rgba(136, 75, 67, 0.4); padding: 4rem 2rem; color: white; text-align: left;
+        }
+        .gradient-card h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--gold); }
+        .gradient-card p { font-size: 0.9rem; opacity: 0.8; font-weight: 300; }
+
+        /* Dropdowns */
         .menu-container { max-width: 900px; margin: 0 auto; width: 100%; }
         .dropdown-item { border-bottom: 1px solid rgba(0,0,0,0.1); padding: 2rem 0; cursor: pointer; text-align: left; }
         .dark-section .dropdown-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .dropdown-header { display: flex; justify-content: space-between; align-items: center; font-family: 'Cinzel'; font-size: 1.1rem; }
-        .dropdown-content { max-height: 0; overflow: hidden; opacity: 0; padding-top: 0; font-size: 0.95rem; }
-        .dropdown-item.open .dropdown-content { max-height: 1000px; opacity: 1; padding-top: 1.5rem; }
-        
-        .service-detail { margin-bottom: 2rem; }
-        .service-price { color: var(--gold); font-weight: 600; font-size: 0.9rem; display: block; margin-top: 0.5rem; }
-        .service-includes { font-size: 0.85rem; opacity: 0.8; display: block; margin-top: 0.5rem; line-height: 1.4; }
+        .dropdown-header { display: flex; justify-content: space-between; font-family: 'Cinzel'; font-size: 1.1rem; }
+        .dropdown-content { max-height: 0; overflow: hidden; opacity: 0; padding-top: 0; }
+        .dropdown-item.open .dropdown-content { max-height: 1200px; opacity: 1; padding-top: 1.5rem; }
 
-        /* Buttons */
+        /* Form Styling */
+        input, select, textarea { 
+            width: 100%; padding: 1rem; margin-top: 1rem; background: transparent; 
+            border: 1px solid var(--plum-black); font-family: 'Inter'; 
+        }
+
         .btn { 
             display: inline-block; background: var(--gold); color: white; padding: 1.2rem 3rem; 
-            text-decoration: none; font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px; margin-top: 2rem; border: none; cursor: pointer;
+            text-decoration: none; font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px; margin-top: 2rem; cursor: pointer; border: none;
         }
-        .btn-outline { background: transparent; border: 1px solid var(--plum-black); color: var(--plum-black); }
-        .dark-section .btn-outline { border-color: white; color: white; }
 
-        /* Page Management */
         .page { display: none; }
-        .page.active { display: block; animation: fadeIn 0.8s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        footer { background: var(--plum-black); color: rgba(255,255,255,0.4); padding: 4rem 10%; text-align: center; font-size: 0.7rem; letter-spacing: 1px; }
+        .page.active { display: block; }
+        footer { background: var(--plum-black); color: rgba(255,255,255,0.4); padding: 4rem 10%; text-align: center; font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -76,135 +76,119 @@
         <section class="dark-section centered">
             <h1 class="hero-title">STORY-LED.<br>DETAIL-REFINED.<br>BRANDS REIMAGINED.</h1>
             <p class="sub-headline">Clarity, positioning, and visual direction that make everything else work. We help founders not only look credible—but operate clearly.</p>
-            <a onclick="showPage('services')" class="btn">VIEW THE MENU</a>
         </section>
 
         <section class="light-section centered">
-            <h2 class="section-title">Clarity Creates Conversions</h2>
-            <div class="menu-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left;">
-                <div style="padding: 2rem; border: 1px solid #eee;">
-                    <h3 style="font-size: 1rem; margin-bottom: 1rem;">Webinar & Lead Capture</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.7;">We design the landing pages, slides, and systems that turn curiosity into sign-ups.</p>
+            <h2 style="font-family: 'Cinzel';">CLARITY CREATES CONVERSIONS</h2>
+            <p class="sub-headline">Q1 is about owning the lane of launch and lead capture infrastructure. Before you build more, get clear on what you’re actually saying.</p>
+            <div class="q1-grid">
+                <div class="gradient-card">
+                    <h3>Webinar & Lead Capture Systems</h3>
+                    <p>We design the landing page, slides, and systems that turn ideas into sign-ups.</p>
+                    <a onclick="goToBooking('Webinar Systems')" style="color:white; font-size: 0.7rem; cursor:pointer; text-decoration: underline;">SECURE THIS SYSTEM →</a>
                 </div>
-                <div style="padding: 2rem; border: 1px solid #eee;">
-                    <h3 style="font-size: 1rem; margin-bottom: 1rem;">Campaign Support</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.7;">Positioning, asset design, and advertising support to ensure your launch wins.</p>
+                <div class="gradient-card">
+                    <h3>Brand Story & Positioning Intensive</h3>
+                    <p>Messaging confusion and offer clarity resolved before you execute.</p>
+                    <a onclick="goToBooking('Positioning Intensive')" style="color:white; font-size: 0.7rem; cursor:pointer; text-decoration: underline;">SECURE THIS SYSTEM →</a>
                 </div>
             </div>
         </section>
 
         <section class="dark-section centered">
-            <h2 class="section-title">Meet KAI</h2>
-            <p class="sub-headline">The childcare companion designed to tackle 312 hours of paperwork. A product of Image & Company built for the modern director.</p>
-            <a href="#" class="btn" style="background: var(--deep-purple); border: 1px solid var(--gold);">ENTER THE PORTAL</a>
+            <h2 style="font-family: 'Cinzel';">THE SERVICE DIRECTORY</h2>
+            <div class="menu-container" style="margin-top: 3rem;">
+                <div class="dropdown-item">| STORY-LED CREATIVE</div>
+                <div class="dropdown-item">| DETAIL-REFINED SYSTEMS</div>
+                <div class="dropdown-item">| ONGOING BRAND PARTNERSHIPS</div>
+                <div class="dropdown-item">| SIGNATURE WEBSITE EXPERIENCE</div>
+            </div>
+        </section>
+
+        <section class="light-section centered">
+            <h1 class="hero-title">SCALE SMARTER.</h1>
+            <p class="sub-headline">Structure creates momentum. We don’t just brand ideas—we build systems that support them. Our service menu is intentionally modular and refined for visibility and authority.</p>
+            <a onclick="showPage('services')" class="btn">VIEW FULL SERVICE MENU & PRICING</a>
+        </section>
+
+        <section class="dark-section centered">
+            <h2 style="font-family: 'Cinzel';">PROBLEM SOLVERS BY DESIGN.</h2>
+            <p class="sub-headline">We've always sat at the intersection of style, strategy, systems, and software. So it’s only right that we offer a product designed to tackle industry pain points. <br><br><strong>Meet KAI (Keeping All Intact).</strong> A Memphis-made, mom-approved childcare companion that transforms 312 hours of annual paperwork into a 15-second digital workflow.</p>
+            <a href="#" class="btn" style="background: var(--deep-purple); border: 1px solid var(--gold);">ENTER THE KAI PORTAL</a>
         </section>
     </div>
 
     <div id="services" class="page">
-        <section class="light-section centered">
+        <section class="dark-section centered">
             <h1 class="hero-title">NOT YOUR AVERAGE AGENCY.</h1>
-            <p class="sub-headline">Seven years ago, this started in a college dorm room with a "win-first" mentality. Today, we are a global studio for founders who demand more than just pretty designs.</p>
-        </section>
-
-        <section class="dark-section">
-            <div class="menu-container">
-                <h2 class="section-title">FOUR STEPS TO THE WIN</h2>
-                <div class="dropdown-item">| 1. SELECT YOUR SYSTEM <div class="dropdown-content">Choose the service category that aligns with your current bottleneck.</div></div>
-                <div class="dropdown-item">| 2. ROUNDTABLE <div class="dropdown-content">We schedule a strategy-heavy session to discuss every need and want before we touch a single pixel.</div></div>
-                <div class="dropdown-item">| 3. BUILD <div class="dropdown-content">We design your assets and build your systems or software with a focus on usability, clarity, and conversion.</div></div>
-                <div class="dropdown-item">| 4. DELIVERY <div class="dropdown-content">We hand over your assets and deliverables with clear walkthroughs and priority async support.</div></div>
-            </div>
+            <p class="sub-headline">Seven years ago, this started in a college dorm room with a "win-first" mentality. Today, we are a global studio for founders who demand more than just pretty designs. We build the infrastructure of your success.</p>
         </section>
 
         <section class="light-section">
             <div class="menu-container">
-                <h2 class="section-title">THE DETAILED MENU</h2>
-                
+                <h2 style="font-family: 'Cinzel'; margin-bottom: 3rem;">FOUR STEPS TO THE WIN</h2>
+                <div class="dropdown-item">| 1. Select Your System: Choose the service category that aligns with your current bottleneck.</div>
+                <div class="dropdown-item">| 2. Roundtable: We schedule a strategy-heavy session to discuss every need and want before we touch a single pixel.</div>
+                <div class="dropdown-item">| 3. Build: We design your assets and build your systems or software with a focus on usability, clarity, and conversion.</div>
+                <div class="dropdown-item">| 4. Delivery: We hand over your assets and deliverables with clear walkthroughs and priority async support.</div>
+            </div>
+        </section>
+
+        <section class="dark-section">
+            <div class="menu-container">
+                <h2 style="font-family: 'Cinzel'; margin-bottom: 3rem;">THE DETAILED MENU</h2>
                 <div class="dropdown-item" onclick="toggleDropdown(this)">
                     <div class="dropdown-header">| STORY-LED CREATIVE <span>+</span></div>
                     <div class="dropdown-content">
-                        <div class="service-detail">
-                            <strong>Brand Story & Positioning Intensive</strong>
-                            <span class="service-price">$450</span>
-                            <span class="service-includes">Includes: Core brand story, belief system, brand pillars, audience narrative, and tone-of-voice guide.</span>
-                        </div>
-                        <div class="service-detail">
-                            <strong>Visual Identity & Mini Brand Suite</strong>
-                            <span class="service-price">$850–$1,200</span>
-                            <span class="service-includes">Includes: Primary logo, secondary mark, color story, typography, and 6-10 templates.</span>
-                        </div>
-                        <div class="service-detail">
-                            <strong>Campaign or Product Launch Support</strong>
-                            <span class="service-price">$950–$1,600</span>
-                            <span class="service-includes">Includes: Positioning, naming, mapping, asset design, creative direction, and advertising support.</span>
-                        </div>
+                        <p><strong>Brand Story & Positioning Intensive — $450</strong><br>Includes: Core story, belief system, pillars, narrative, and tone guide.</p>
+                        <p><strong>Visual Identity & Mini Brand Suite — $850–$1,200</strong><br>Includes: Primary/Secondary logos, color story, typography, 6-10 templates.</p>
+                        <p><strong>Campaign or Product Launch Support — $950–$1,600</strong><br>Includes: Positioning, mapping, asset design, and advertising support.</p>
+                        <button onclick="goToBooking('Story-Led Creative')" class="btn" style="width:100%">LET'S WORK</button>
                     </div>
                 </div>
-
                 <div class="dropdown-item" onclick="toggleDropdown(this)">
                     <div class="dropdown-header">| DETAIL-REFINED SYSTEMS <span>+</span></div>
                     <div class="dropdown-content">
-                        <div class="service-detail">
-                            <strong>CRM & Client Journey Setup</strong>
-                            <span class="service-price">$550</span>
-                            <span class="service-includes">Includes: Custom CRM build (Airtable/Notion), lead stages, and journey mapping.</span>
-                        </div>
-                        <div class="service-detail">
-                            <strong>Webinar & Lead Capture Systems</strong>
-                            <span class="service-price">$650–$1,000</span>
-                            <span class="service-includes">Includes: Landing page/lead magnet, branded slides, and delivery automation.</span>
-                        </div>
-                        <div class="service-detail">
-                            <strong>Financial & Operations Systems</strong>
-                            <span class="service-price">$750–$1,200</span>
-                            <span class="service-includes">Includes: Revenue/expense tracking and decision-support dashboards.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dropdown-item" onclick="toggleDropdown(this)">
-                    <div class="dropdown-header">| ONGOING PARTNERSHIPS <span>+</span></div>
-                    <div class="dropdown-content">
-                        <div class="service-detail">
-                            <strong>Monthly Brand Partnership Retainer</strong>
-                            <span class="service-price">$650–$1,200/mo</span>
-                            <span class="service-includes">Includes: Strategy sessions, ongoing creative/systems direction, and monthly deliverables.</span>
-                        </div>
-                        <div class="service-detail">
-                            <strong>Launch Partner Package</strong>
-                            <span class="service-price">$2,400–$3,000</span>
-                            <span class="service-includes">Includes: Campaign concept, full asset creation, and weekly launch check-ins.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dropdown-item" onclick="toggleDropdown(this)">
-                    <div class="dropdown-header">| SIGNATURE WEBSITE EXPERIENCE <span>+</span></div>
-                    <div class="dropdown-content">
-                        <div class="service-detail">
-                            <strong>One-Page Website Experience</strong>
-                            <span class="service-price">$1,000</span>
-                            <span class="service-includes">Includes: Story-led structure, full design, and mobile optimization.</span>
-                        </div>
-                        <div class="service-detail">
-                            <strong>Full Website Design</strong>
-                            <span class="service-price">Starting at $1,600</span>
-                            <span class="service-includes">Options for 3-8 pages. Includes UX structure, copy editing, and mobile optimization.</span>
-                        </div>
+                        <p><strong>CRM & Client Journey Setup — $550</strong><br>Includes: Custom CRM build, lead stages, and end-to-end mapping.</p>
+                        <p><strong>Webinar & Lead Capture Systems — $650–$1,000</strong><br>Includes: Landing page, slide deck, and delivery automation.</p>
+                        <p><strong>Financial & Operations Systems — $750–$1,200</strong><br>Includes: Revenue tracking and financial dashboards.</p>
+                        <button onclick="goToBooking('Systems')" class="btn" style="width:100%">LET'S WORK</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="dark-section centered">
-            <h2 class="hero-title">READY TO REIMAGINE?</h2>
-            <a href="mailto:klmalone0513@gmail.com" class="btn">LET'S WORK</a>
+        <section class="light-section centered">
+            <h2 style="font-family: 'Cinzel';">READY TO REIMAGINE?</h2>
+            <a onclick="goToBooking('General Inquiry')" class="btn">LET'S WORK</a>
+        </section>
+    </div>
+
+    <div id="booking" class="page">
+        <section class="light-section">
+            <div class="menu-container">
+                <h1 class="hero-title">SECURE YOUR SYSTEM.</h1>
+                <form action="https://formsubmit.co/klmalone0513@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <select name="service" id="service-select">
+                        <option value="General Inquiry">Select a Service</option>
+                        <option value="Webinar Systems">Webinar & Lead Capture</option>
+                        <option value="Positioning Intensive">Brand Story & Positioning</option>
+                        <option value="Story-Led Creative">Story-Led Creative Suite</option>
+                        <option value="Systems">Detail-Refined Systems</option>
+                        <option value="Retainer">Brand Partnership</option>
+                        <option value="Website">Signature Website</option>
+                    </select>
+                    <textarea name="message" rows="5" placeholder="Tell us about your current bottleneck..."></textarea>
+                    <button type="submit" class="btn" style="width:100%">SUBMIT INTAKE</button>
+                </form>
+            </div>
         </section>
     </div>
 
     <footer>
-        901-654-5728 | klmalone0513@gmail.com<br>
-        © 2026 IMAGE & COMPANY. BUILT FOR THE WIN.
+        901-654-5728 | Built with ❤️ in Memphis, TN. Serving clients globally.
     </footer>
 
     <script>
@@ -213,8 +197,10 @@
             document.getElementById(id).classList.add('active');
             window.scrollTo(0,0);
         }
-        function toggleDropdown(el) {
-            el.classList.toggle('open');
+        function toggleDropdown(el) { el.classList.toggle('open'); }
+        function goToBooking(service) {
+            document.getElementById('service-select').value = service;
+            showPage('booking');
         }
     </script>
 </body>
