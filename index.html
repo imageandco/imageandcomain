@@ -19,52 +19,52 @@
         }
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.7rem; letter-spacing: 2px; cursor: pointer; }
 
-        /* Hero Section Fixes */
+        /* Hero Section - Centered Off-White Text */
         .hero-bg-wrapper {
             position: relative; width: 100%; height: 100vh;
             background: url('images/hero-bg.png') center/cover no-repeat;
-            display: flex; align-items: flex-end; justify-content: center; padding-bottom: 15vh;
+            display: flex; align-items: center; justify-content: center;
         }
         .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(30, 7, 8, 0.6); }
-        .hero-content { position: relative; z-index: 2; color: var(--off-white); text-align: center; }
+        .hero-content { position: relative; z-index: 2; color: var(--off-white); text-align: center; padding: 0 10%; }
 
         section { padding: 8rem 10%; display: flex; flex-direction: column; justify-content: center; }
         .dark-section { background: var(--plum-black); color: white; }
         .light-section { background: var(--off-white); color: var(--plum-black); }
         .centered { text-align: center; align-items: center; }
         
-        /* Versus Cards */
+        /* Q1 Versus Cards */
         .q1-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; width: 100%; max-width: 1100px; margin: 3rem 0; }
         .gradient-card { 
             background: linear-gradient(145deg, var(--plum-black), var(--deep-purple));
             border: 1px solid rgba(136, 75, 67, 0.4); padding: 4rem 2rem; color: white; text-align: center; 
         }
 
-        /* Logo Showcase - Black with Plum Border */
-        .logo-showcase { 
-            background: var(--true-black); border: 2px solid var(--deep-purple); padding: 4rem 5%; border-radius: 10px; width: 100%; max-width: 1100px; margin-top: 2rem;
-        }
-        .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: center; }
-        .logo-slot img { max-width: 100%; height: auto; transform: scale(1.5); filter: grayscale(100%); opacity: 0.7; object-fit: contain; }
+        /* Full Width Logo Showcase */
+        .full-width-black { background: var(--true-black); width: 100vw; margin-left: calc(-50vw + 50%); padding: 4rem 0; border-top: 2px solid var(--deep-purple); border-bottom: 2px solid var(--deep-purple); }
+        .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; max-width: 1100px; margin: 0 auto; align-items: center; }
+        .logo-slot { display: flex; justify-content: center; overflow: hidden; }
+        .logo-slot img { max-width: 100%; height: auto; transform: scale(1.5); filter: grayscale(100%); opacity: 0.7; }
 
-        /* Steps - Bolded Numbers */
+        /* Steps - Bolded Titles */
         .step-item { border-bottom: 1px solid rgba(0,0,0,0.1); padding: 1.5rem 0; text-align: left; }
         .step-item strong { font-weight: 700; color: var(--plum-black); }
 
-        /* Dropdown Styling */
+        /* Dropdown Detail Menu */
         .menu-container { max-width: 900px; margin: 0 auto; width: 100%; }
         .dropdown-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; cursor: pointer; }
         .dropdown-content { max-height: 0; overflow: hidden; opacity: 0; transition: 0.5s ease; }
-        .dropdown-item.open .dropdown-content { max-height: 3000px; opacity: 1; padding-top: 1.5rem; }
+        .dropdown-item.open .dropdown-content { max-height: 5000px; opacity: 1; padding-top: 1.5rem; }
 
-        .service-block { margin-bottom: 3rem; text-align: left; }
-        .service-name { font-style: italic; font-size: 1.1rem; display: block; border-left: 2px solid var(--gold); padding-left: 15px; }
+        .service-block { margin-bottom: 3.5rem; text-align: left; }
+        .service-name { font-style: italic; font-size: 1.15rem; display: block; border-left: 3px solid var(--gold); padding-left: 15px; margin-bottom: 10px; }
+        .service-includes { display: block; font-size: 0.85rem; opacity: 0.7; line-height: 1.6; }
 
         .btn { display: inline-block; background: var(--gold); color: white; padding: 1.2rem 3rem; text-decoration: none; font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px; border: none; cursor: pointer; }
-        .btn-small { padding: 0.8rem 2rem; font-size: 0.7rem; margin-top: 1rem; }
+        .btn-small { padding: 0.8rem 2rem; font-size: 0.7rem; margin-top: 1.5rem; }
 
-        /* Closing Gradient */
-        .closing-gradient { background: linear-gradient(180deg, var(--plum-black) 0%, var(--deep-purple) 100%); color: white; }
+        /* Closing Gradient Wrapper */
+        .footer-gradient-wrap { background: linear-gradient(180deg, var(--plum-black) 0%, var(--deep-purple) 100%); color: white; }
 
         .page { display: none; }
         .page.active { display: block; }
@@ -87,7 +87,7 @@
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1 style="font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1;">STORY-LED.<br>DETAIL-REFINED.<br>BRANDS REIMAGINED.</h1>
-                <p class="sub-headline">Clarity, positioning, and visual direction that make everything else work. We help founders not only look credible—but operate clearly.</p>
+                <p class="sub-headline" style="margin-top: 2rem;">Clarity, positioning, and visual direction that make everything else work. We help founders not only look credible—but operate clearly.</p>
             </div>
         </div>
 
@@ -108,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="logo-showcase">
+            <div class="full-width-black">
                 <div class="logo-grid">
                     <div class="logo-slot"><img src="images/logo-1.png" alt="Client 1"></div>
                     <div class="logo-slot"><img src="images/logo-2.png" alt="Client 2"></div>
@@ -119,21 +119,21 @@
 
         <section class="dark-section centered">
             <h1 class="hero-title">SCALE SMARTER.</h1>
-            <p class="sub-headline">Structure creates momentum. We don’t just brand ideas—we build systems that support them.</p>
+            <p class="sub-headline">Structure creates momentum. We don’t just brand ideas—we build systems that support them. Our service menu is intentionally modular and refined for visibility and authority.</p>
             <a onclick="showPage('services')" class="btn">VIEW FULL SERVICE MENU</a>
         </section>
 
-        <section class="closing-gradient centered">
+        <section class="light-section centered">
             <h2 style="font-family: 'Cinzel';">PROBLEM SOLVERS BY DESIGN.</h2>
-            <p class="sub-headline">Meet KAI (Keeping All Intact). A Memphis-made, mom-approved childcare companion.</p>
-            <a href="#" class="btn" style="background: var(--plum-black); border: 1px solid var(--gold);">ENTER THE PORTAL</a>
+            <p class="sub-headline">We've always sat at the intersection of style, strategy, systems, and software. So it’s only right that we offer a product designed to tackle industry pain points. <br><br><strong>Meet KAI (Keeping All Intact).</strong> A Memphis-made, mom-approved childcare companion that transforms 312 hours of annual paperwork into a 15-second digital workflow.</p>
+            <a href="#" class="btn" style="background: var(--plum-black); color: white;">ENTER THE KAI PORTAL</a>
         </section>
     </div>
 
     <div id="services" class="page">
         <section class="dark-section centered" style="min-height: 60vh;">
             <h1 class="hero-title">NOT YOUR AVERAGE AGENCY.</h1>
-            <p class="sub-headline">We build the infrastructure of your success.</p>
+            <p class="sub-headline">Seven years ago, this started in a college dorm room with a "win-first" mentality. Today, we are a global studio for founders who demand more than just pretty designs. We build the infrastructure of your success.</p>
         </section>
 
         <div style="width: 100%; height: 400px; background: url('images/process-hero.png') center/cover no-repeat;"></div>
@@ -141,10 +141,10 @@
         <section class="light-section">
             <div class="menu-container">
                 <h2 style="font-family: 'Cinzel'; margin-bottom: 3rem;">FOUR STEPS TO THE WIN</h2>
-                <div class="step-item"><strong>1. Select Your System:</strong> Choose the service category that aligns with your bottleneck.</div>
-                <div class="step-item"><strong>2. Roundtable:</strong> We schedule a strategy-heavy session to discuss every need and want.</div>
-                <div class="step-item"><strong>3. Build:</strong> We design your assets and build your systems with relentless focus.</div>
-                <div class="step-item"><strong>4. Delivery:</strong> We hand over assets with clear walkthroughs and support.</div>
+                <div class="step-item"><strong>1. Select Your System:</strong> Choose the service category that aligns with your current bottleneck.</div>
+                <div class="step-item"><strong>2. Roundtable:</strong> We schedule a strategy-heavy session to discuss every need and want before we touch a single pixel.</div>
+                <div class="step-item"><strong>3. Build:</strong> We design your assets and build your systems or software with a relentless focus on usability, clarity, and conversion.</div>
+                <div class="step-item"><strong>4. Delivery:</strong> We hand over your assets and deliverables with clear walkthroughs and priority async support.</div>
             </div>
         </section>
 
@@ -157,13 +157,18 @@
                     <div class="dropdown-content">
                         <div class="service-block">
                             <span class="service-name">Brand Story & Positioning Intensive: $450</span>
-                            <span class="service-includes">| Core brand story | Belief system | Brand pillars | Audience narrative</span>
-                            <button onclick="goToBooking('Positioning')" class="btn btn-small">LET'S WORK</button>
+                            <span class="service-includes">| Core brand story | Belief system | Brand pillars | Audience narrative | Tone-of-voice guide</span>
+                            <button onclick="goToBooking('Positioning Intensive')" class="btn btn-small">LET'S WORK</button>
                         </div>
                         <div class="service-block">
                             <span class="service-name">Visual Identity & Mini Brand Suite: $850–$1,200</span>
-                            <span class="service-includes">| Primary logo | Secondary mark | Color story | Typography</span>
+                            <span class="service-includes">| Primary logo/wordmark | Secondary mark | Color story | Typography | 6-10 brand templates</span>
                             <button onclick="goToBooking('Visual Identity')" class="btn btn-small">LET'S WORK</button>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Campaign or Product Launch Support: $950–$1,600</span>
+                            <span class="service-includes">| Positioning | Naming | Mapping | Asset design and development | Creative direction | Advertising support</span>
+                            <button onclick="goToBooking('Launch Support')" class="btn btn-small">LET'S WORK</button>
                         </div>
                     </div>
                 </div>
@@ -173,19 +178,91 @@
                     <div class="dropdown-content">
                         <div class="service-block">
                             <span class="service-name">CRM & Client Journey Setup: $550</span>
-                            <span class="service-includes">| Custom CRM build | Lead stages | Journey map</span>
+                            <span class="service-includes">| Custom CRM build (Airtable, Notion, or Sheets) | Lead stages | Tags | End-to-end client journey map</span>
                             <button onclick="goToBooking('CRM Setup')" class="btn btn-small">LET'S WORK</button>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Webinar & Lead Capture Systems: $650–$1,000</span>
+                            <span class="service-includes">| Landing page or lead magnet creation | Branded slide deck | Delivery automation | Launch graphics</span>
+                            <button onclick="goToBooking('Webinar Systems')" class="btn btn-small">LET'S WORK</button>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Financial & Operations Systems: $750–$1,200</span>
+                            <span class="service-includes">| Revenue/expense tracking | Financial dashboards | Decision-support reporting systems</span>
+                            <button onclick="goToBooking('Financial Systems')" class="btn btn-small">LET'S WORK</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-item" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">| ONGOING BRAND PARTNERSHIPS <span>+</span></div>
+                    <div class="dropdown-content">
+                        <div class="service-block">
+                            <span class="service-name">Monthly Brand Partnership Retainer: $650–$1,200/mo</span>
+                            <span class="service-includes">| Strategy/working sessions | Ongoing creative and systems direction | Monthly scoped deliverables</span>
+                            <button onclick="goToBooking('Retainer')" class="btn btn-small">LET'S WORK</button>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Launch Partner Package: $2,400–$3,000</span>
+                            <span class="service-includes">| Campaign concept | Full asset creation (landing pages, slides, graphics) | Weekly check-ins during launch</span>
+                            <button onclick="goToBooking('Launch Partner')" class="btn btn-small">LET'S WORK</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-item" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">| SIGNATURE WEBSITE EXPERIENCE <span>+</span></div>
+                    <div class="dropdown-content">
+                        <div class="service-block">
+                            <span class="service-name">One-Page Website Experience: $1,000</span>
+                            <span class="service-includes">| Story-led one-page structure | Full design | Mobile optimization | Clear conversion flow</span>
+                            <button onclick="goToBooking('One-Page Web')" class="btn btn-small">LET'S WORK</button>
+                        </div>
+                        <div class="service-block">
+                            <span class="service-name">Full Website Design: Starting at $1,600</span>
+                            <span class="service-includes">| Options: 3-5 pages ($1,600–$1,900) or 6-8 pages ($2,000–$2,400) | Narrative + UX structure | Design | Copy editing | Mobile optimization</span>
+                            <button onclick="goToBooking('Full Website')" class="btn btn-small">LET'S WORK</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="closing-gradient centered">
+        <section class="footer-gradient-wrap centered">
             <h2 style="font-family: 'Cinzel';">READY TO REIMAGINE?</h2>
-            <a onclick="goToBooking('General')" class="btn">LET'S WORK</a>
+            <a onclick="goToBooking('General')" class="btn" style="background: var(--true-black);">LET'S WORK</a>
         </section>
     </div>
+
+    <div id="booking" class="page">
+        <section class="light-section centered">
+            <div class="menu-container">
+                <h1 class="hero-title">SECURE YOUR SYSTEM.</h1>
+                <form action="https://formsubmit.co/klmalone0513@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required style="width:100%; padding:1rem; margin-top:1rem; border:1px solid #ddd;">
+                    <input type="email" name="email" placeholder="Email Address" required style="width:100%; padding:1rem; margin-top:1rem; border:1px solid #ddd;">
+                    <select name="service" id="service-select" style="width:100%; padding:1rem; margin-top:1rem; border:1px solid #ddd;">
+                        <option value="General Inquiry">Select a Service</option>
+                        <option value="Webinar Systems">Webinar & Lead Capture</option>
+                        <option value="Positioning Intensive">Brand Story & Positioning</option>
+                        <option value="Visual Identity">Visual Identity Suite</option>
+                        <option value="Launch Support">Campaign/Launch Support</option>
+                        <option value="CRM Setup">CRM/Journey Setup</option>
+                        <option value="Financial Systems">Financial/Ops Systems</option>
+                        <option value="Retainer">Brand Retainer</option>
+                        <option value="One-Page Web">One-Page Website</option>
+                        <option value="Full Website">Full Website Design</option>
+                    </select>
+                    <textarea name="message" rows="5" placeholder="Tell us about your bottleneck..." style="width:100%; padding:1rem; margin-top:1rem; border:1px solid #ddd;"></textarea>
+                    <button type="submit" class="btn" style="width:100%">SUBMIT INTAKE</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        901-654-5728 | Built with ❤️ in Memphis, TN. Serving clients globally.
+    </footer>
 
     <script>
         function showPage(id) {
@@ -195,8 +272,8 @@
         }
         function toggleDropdown(el) { el.classList.toggle('open'); }
         function goToBooking(service) {
-            alert("Redirecting to booking for: " + service);
-            showPage('home'); // Logic for Page 3 would go here
+            document.getElementById('service-select').value = service;
+            showPage('booking');
         }
     </script>
 </body>
